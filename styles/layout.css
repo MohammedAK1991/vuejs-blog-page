@@ -1,0 +1,28 @@
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: left;
+}
+
+.main-column {
+    max-width: 600px;
+}
+
+.sidebar-column {
+    width: 320px;
+}
+
+.ad-label {
+    text-transform: uppercase;
+    text-align: center;
+    display: inline-block;
+    width: 100%;
+    font-size: .8em;
+}
+
+@media (max-width: 936px) {
+    .sidebar-column .ad-label, .sidebar-column .ad-container {
+        display: none;
+    }
+}
