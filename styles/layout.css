@@ -18,11 +18,37 @@
     text-align: center;
     display: inline-block;
     width: 100%;
-    font-size: .8em;
+    font-size: 0.8em;
+}
+
+.ad-content,
+.ad-sidebar {
+    text-align: center;
+}
+
+.ad-content,
+.ad-sidebar {
+    display: block; /* Ensures the div is block level */
+    margin: 0 auto; /* Centers the div */
 }
 
 @media (max-width: 936px) {
-    .sidebar-column .ad-label, .sidebar-column .ad-container {
+    .sidebar-column {
         display: none;
+    }
+    .ad-content {
+        width: 100%; /* Ensures the ad takes the full width on smaller screens */
+        height: 100px; /* Setting an arbitrary height to impove CLS */
+    }
+}
+
+@media (min-width: 937px) {
+    .ad-content {
+        width: 320px; /* Adjusted width for larger screens */
+        height: 200px; /* Setting an arbitrary height to impove CLS */
+    }
+    .ad-sidebar {
+        width: 320px; /* Width of the sidebar ad */
+        height: 600px; /* Setting an arbitrary height to impove CLS */
     }
 }
