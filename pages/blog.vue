@@ -44,4 +44,33 @@
   </div>
 </template>
 
+<script>
+export default {
+  async asyncData({ error  }) {
+    try {
+      // Since this is the blog page, we can hardcode the endpoint
+      const response = await fetch('/api/metadata/blog');
+      if (!response.ok) {
+        throw new Error('Error fetching metadata');
+      }
+      const metadata = await response.json();
+      return { metadata };
+    } catch (e) {
+      console.error(e); // Log any error
+      error({ statusCode: 404, message: 'Metadata not found' });
+    }
+  },
+  head() {
+    // Use metadata to set the page's meta tags
+    return {
+      title: this.metadata.metaTitle,
+      meta: [
+        { hid: 'description', name: 'description', content: this.metadata.metaDescription }
+      ]
+    };
+  }
+}
+</script>
+
+
 <style src="@/styles/layout.css" />

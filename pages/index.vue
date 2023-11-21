@@ -1,5 +1,5 @@
 <template>
-  <div class="home container">
+  <div class="container home">
     <div class="main-column">
       <h1>Home</h1>
       <p>
@@ -63,5 +63,31 @@
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  async asyncData({ error }) {
+    try {
+      const response = await fetch('/api/metadata/home');
+      if (!response.ok) {
+        throw new Error('Error fetching metadata');
+      }
+      const metadata = await response.json();
+      return { metadata };
+    } catch (e) {
+      console.error(e); // Log any error
+      error({ statusCode: 404, message: 'Metadata not found' });
+    }
+  },
+  head() {
+    return {
+      title: this.metadata.metaTitle,
+      meta: [
+        { hid: 'description', name: 'description', content: this.metadata.metaDescription }
+      ]
+    };
+  }
+}
+</script>
 
 <style src="@/styles/layout.css" />
