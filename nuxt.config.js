@@ -2,6 +2,10 @@ export default {
     // Target: https://go.nuxtjs.dev/config-target
     target: "static",
 
+    serverMiddleware: [
+      { path : '/api', handler: '~/serverMiddleware/api.js'},
+    ],
+
     // Global page headers: https://go.nuxtjs.dev/config-head
     head: {
         title: "ex-app-nuxt",
@@ -37,4 +41,6 @@ export default {
 
     // Build Configuration: https://go.nuxtjs.dev/config-build
     build: {},
+
+
 };
