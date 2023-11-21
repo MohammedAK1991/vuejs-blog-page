@@ -1,5 +1,5 @@
 <template>
-  <div class="blog container">
+  <div class="container blog">
     <div class="main-column">
       <h1>Blog</h1>
       <p>
@@ -14,7 +14,14 @@
         ipsum ipsum, nec vulputate velit suscipit eu. Donec bibendum odio vel
         augue sodales, eu porta neque accumsan.
       </p>
-
+      <div>
+        <span style="text-align: center" class="ad-label">Advertisement</span>
+        <div style="display: flex; justify-content: center;">
+        <div :id="`ad-placement-id-342AEA22AA`">
+          <!-- Ad system will fill this -->
+        </div>
+        </div>
+      </div>
       <h2>Articles</h2>
       <ul>
         <li>Lorem ipsum</li>
@@ -25,6 +32,14 @@
         <li>Lorem ipsum</li>
         <li>Lorem ipsum</li>
       </ul>
+    </div>
+    <div class="sidebar-column">
+      <span class="ad-label">Advertisement</span>
+      <div class="ad-container">
+        <div :id="`ad-placement-id-FAEEC2623F`">
+          <!-- Ad system will fill this -->
+        </div>
+      </div>
     </div>
   </div>
 </template>
