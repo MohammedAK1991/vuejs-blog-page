@@ -20,9 +20,9 @@
       <div>
         <span style="text-align: center" class="ad-label">Advertisement</span>
         <div style="display: flex; justify-content: center;">
-        <div :id="`ad-placement-id-342AEA22AA`">
-          <!-- Ad system will fill this -->
-        </div>
+          <div :id="`ad-placement-id-342AEA22AA`">
+            <!-- Ad system will fill this -->
+          </div>
         </div>
       </div>
       <p>
@@ -66,11 +66,13 @@
 
 <script>
 export default {
-  async asyncData({ error }) {
+  async asyncData({ error, $config }) {
     try {
-      const response = await fetch('/api/metadata/home');
+      const baseURL = $config.baseURL;
+      const page = "home";
+      const response = await fetch(`${baseURL}/api/metadata/${page}`);
       if (!response.ok) {
-        throw new Error('Error fetching metadata');
+        throw new Error("Error fetching metadata");
       }
       const metadata = await response.json();
       return { metadata };
@@ -87,7 +89,7 @@ export default {
       ]
     };
   }
-}
+};
 </script>
 
 <style src="@/styles/layout.css" />

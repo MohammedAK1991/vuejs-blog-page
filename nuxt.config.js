@@ -6,6 +6,12 @@ export default {
       { path : '/api', handler: '~/serverMiddleware/api.js'},
     ],
 
+    publicRuntimeConfig: {
+      // If deployed on Vercel, `process.env.VERCEL_URL` will be set and used.
+      // Otherwise, in a local environment, it will default to localhost.
+      baseURL: process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000'
+    },
+
     // Global page headers: https://go.nuxtjs.dev/config-head
     head: {
         title: "ex-app-nuxt",

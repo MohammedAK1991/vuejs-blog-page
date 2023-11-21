@@ -17,9 +17,9 @@
       <div>
         <span style="text-align: center" class="ad-label">Advertisement</span>
         <div style="display: flex; justify-content: center;">
-        <div :id="`ad-placement-id-342AEA22AA`">
-          <!-- Ad system will fill this -->
-        </div>
+          <div :id="`ad-placement-id-342AEA22AA`">
+            <!-- Ad system will fill this -->
+          </div>
         </div>
       </div>
       <h2>Articles</h2>
@@ -46,12 +46,13 @@
 
 <script>
 export default {
-  async asyncData({ error  }) {
+  async asyncData({ error, $config }) {
     try {
-      // Since this is the blog page, we can hardcode the endpoint
-      const response = await fetch('/api/metadata/blog');
+      const baseURL = $config.baseURL; // Use the runtime config
+      const page = "blog"; // The name of your page
+      const response = await fetch(`${baseURL}/api/metadata/${page}`);
       if (!response.ok) {
-        throw new Error('Error fetching metadata');
+        throw new Error("Error fetching metadata");
       }
       const metadata = await response.json();
       return { metadata };
@@ -69,7 +70,7 @@ export default {
       ]
     };
   }
-}
+};
 </script>
 
 

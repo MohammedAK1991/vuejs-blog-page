@@ -3,32 +3,35 @@
     <div class="main-column">
       <h1>About</h1>
       <p>
-        Integer molestie nunc eget laoreet ullamcorper. Nulla facilisi. Mauris
-        odio elit, sagittis sed aliquam at, commodo id ante. Suspendisse mauris
-        dolor, euismod ac dictum in, viverra eu nunc. Vestibulum ut odio id nisi
-        viverra semper vitae in sem. Cras cursus orci nec massa hendrerit,
-        tristique fringilla augue blandit. Etiam dui nisl, egestas quis
-        consequat vitae, posuere vel quam. Suspendisse mollis lacus nisi, in
-        efficitur nisl auctor eget. Curabitur congue, odio sit amet consequat
-        elementum, turpis libero euismod dui, a mattis arcu massa aliquam velit.
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        Integer molestie nunc eget laoreet ullamcorper. Nulla facilisi.
+        Mauris odio elit, sagittis sed aliquam at, commodo id ante.
+        Suspendisse mauris dolor, euismod ac dictum in, viverra eu nunc.
+        Vestibulum ut odio id nisi viverra semper vitae in sem. Cras
+        cursus orci nec massa hendrerit, tristique fringilla augue
+        blandit. Etiam dui nisl, egestas quis consequat vitae, posuere
+        vel quam. Suspendisse mollis lacus nisi, in efficitur nisl
+        auctor eget. Curabitur congue, odio sit amet consequat
+        elementum, turpis libero euismod dui, a mattis arcu massa
+        aliquam velit. Lorem ipsum dolor sit amet, consectetur
+        adipiscing elit.
       </p>
       <div>
         <span style="text-align: center" class="ad-label">Advertisement</span>
-        <div style="display: flex; justify-content: center;">
-        <div :id="`ad-placement-id-342AEA22AA`">
-          <!-- Ad system will fill this -->
-        </div>
+        <div style="display: flex; justify-content: center">
+          <div :id="`ad-placement-id-342AEA22AA`">
+            <!-- Ad system will fill this -->
+          </div>
         </div>
       </div>
       <p>
         Donec convallis lacus eu ante venenatis lacinia. Phasellus quis
-        fringilla magna, ut tristique tellus. Maecenas non elit enim. Aenean
-        tellus lectus, imperdiet ornare malesuada vitae, rhoncus a sem.
-        Curabitur molestie dui id metus ultricies mollis. Etiam vestibulum
-        iaculis condimentum. Morbi nisl urna, gravida vel elementum in, sodales
-        et leo. Praesent rutrum eros nulla, quis ultricies neque dapibus et.
-        Cras egestas ante sed mauris scelerisque lobortis.
+        fringilla magna, ut tristique tellus. Maecenas non elit enim.
+        Aenean tellus lectus, imperdiet ornare malesuada vitae, rhoncus
+        a sem. Curabitur molestie dui id metus ultricies mollis. Etiam
+        vestibulum iaculis condimentum. Morbi nisl urna, gravida vel
+        elementum in, sodales et leo. Praesent rutrum eros nulla, quis
+        ultricies neque dapibus et. Cras egestas ante sed mauris
+        scelerisque lobortis.
       </p>
     </div>
     <div class="sidebar-column">
@@ -44,29 +47,34 @@
 
 <script>
 export default {
-  async asyncData({ error }) {
+  async asyncData({ error, $config }) {
     try {
-      const response = await fetch('/api/metadata/about');
+      const baseURL = $config.baseURL; // Use the runtime config
+      const page = "about"; // The name of your page
+      const response = await fetch(`${baseURL}/api/metadata/${page}`);
       if (!response.ok) {
-        throw new Error('Error fetching metadata');
+        throw new Error("Error fetching metadata");
       }
       const metadata = await response.json();
       return { metadata };
     } catch (e) {
       console.error(e); // Log any error
-      error({ statusCode: 404, message: 'Metadata not found' });
+      error({ statusCode: 404, message: "Metadata not found" });
     }
   },
   head() {
     return {
       title: this.metadata.metaTitle,
       meta: [
-        { hid: 'description', name: 'description', content: this.metadata.metaDescription }
-      ]
+        {
+          hid: "description",
+          name: "description",
+          content: this.metadata.metaDescription,
+        },
+      ],
     };
-  }
-}
+  },
+};
 </script>
-
 
 <style src="@/styles/layout.css" />
