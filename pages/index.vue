@@ -66,20 +66,23 @@
 
 <script>
 export default {
-  async asyncData({ error, $config }) {
+  async asyncData({ $config }) {
+    let metadata;
     try {
-      const baseURL = $config.baseURL;
-      const page = "home";
+      const baseURL = $config.baseURL; // Use the runtime config
+      const page = "home"; // The name of your page
       const response = await fetch(`${baseURL}/api/metadata/${page}`);
       if (!response.ok) {
         throw new Error("Error fetching metadata");
       }
-      const metadata = await response.json();
-      return { metadata };
+      metadata = await response.json();
     } catch (e) {
-      console.error(e); // Log any error
-      error({ statusCode: 404, message: 'Metadata not found' });
+      // Handle error, log it, and use default metadata if necessary
+      console.error(e);
+      metadata = { metaTitle: 'Default Title', metaDescription: 'Default Description' };
+
     }
+    return { metadata };
   },
   head() {
     return {
