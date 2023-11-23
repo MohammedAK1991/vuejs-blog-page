@@ -7,7 +7,7 @@ export default {
     ],
 
     publicRuntimeConfig: {
-      baseURL: process.env.BASE_URL || `http://${process.env.HOST || 'localhost'}:${process.env.PORT || 3000}`
+      baseURL: process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000'
     },
 
     // Global page headers: https://go.nuxtjs.dev/config-head
