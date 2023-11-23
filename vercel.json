@@ -3,7 +3,14 @@
   "builds": [
     {
       "src": "nuxt.config.js",
-      "use": "@nuxtjs/vercel-builder"
+      "use": "@nuxtjs/vercel-builder",
+      "config": {
+        "serverFiles": ["server-middleware/**"]
+      }
+    },
+    {
+      "src": "api/**/*.js",
+      "use": "@vercel/node"
     }
   ],
   "routes": [
@@ -12,7 +19,6 @@
       "dest": "/api/metadata-about.js",
       "methods": ["GET", "OPTIONS"],
       "headers": {
-        "Access-Control-Allow-Credentials": "true",
         "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Methods": "GET, OPTIONS",
         "Access-Control-Allow-Headers": "Content-Type"
@@ -23,7 +29,6 @@
       "dest": "/api/metadata-home.js",
       "methods": ["GET", "OPTIONS"],
       "headers": {
-        "Access-Control-Allow-Credentials": "true",
         "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Methods": "GET, OPTIONS",
         "Access-Control-Allow-Headers": "Content-Type"
@@ -34,7 +39,6 @@
       "dest": "/api/metadata-blog.js",
       "methods": ["GET", "OPTIONS"],
       "headers": {
-        "Access-Control-Allow-Credentials": "true",
         "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Methods": "GET, OPTIONS",
         "Access-Control-Allow-Headers": "Content-Type"
