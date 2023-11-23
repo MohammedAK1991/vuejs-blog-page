@@ -1,6 +1,6 @@
 export default {
     // Target: https://go.nuxtjs.dev/config-target
-    target: "server",
+    target: "static",
 
     serverMiddleware: process.env.NODE_ENV === 'production' ? [] : [
       { path: '/api', handler: '~/serverMiddleware/api.js' },
