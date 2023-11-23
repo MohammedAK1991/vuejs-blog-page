@@ -8,8 +8,12 @@ In the next section we will describe some requirements written from the perspect
 
 The following requirements need to be fulfilled in order to pass the test:
 
-- [ ] We want to show ads in the blog page, the same way we show them in the other 2 pages, one sidebar ad with the id `ad-placement-id-FAEEC2623F` and an in content block ad after the first paragraph, with the id `ad-placement-id-342AEA22AA`.
+- [ ] We want to show ads in the blog page, the same way we show them in the other 2 pages, one sidebar ad with the id
+`ad-placement-id-FAEEC2623F` and an in content block ad after the first paragraph, with the id `ad-placement-id-342AEA22AA`.
+Ads have been successfully integrated into the blog page. A sidebar ad with the ID ad-placement-id-FAEEC2623F and an in-content block ad after the first paragraph with the ID ad-placement-id-342AEA22AA are displayed consistently with the ads on other pages.
+
 - [ ] We need to make sure that the ads are repainted on each navigation.
+
 - [ ] We want to achieve a CLS score below 0.1 on each page.
 - [ ] We want to make sure we don't render ads in positions that are not visible depending on the device.
 - [ ] We need the content of the page, meta title, and meta description to be served through a REST API. Both the content and meta information must be available on the first render of the page.

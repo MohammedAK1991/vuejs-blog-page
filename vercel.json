@@ -40,16 +40,5 @@
         "Access-Control-Allow-Headers": "Content-Type"
       }
     }
-  ],
-  "functions": {
-    "api/metadata-about.js": {
-      "runtime": "nodejs14.x"
-    },
-    "api/metadata-home.js": {
-      "runtime": "nodejs14.x"
-    },
-    "api/metadata-blog.js": {
-      "runtime": "nodejs14.x"
-    }
-  }
+  ]
 }
