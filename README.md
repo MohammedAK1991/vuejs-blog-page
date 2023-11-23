@@ -13,13 +13,25 @@ The following requirements need to be fulfilled in order to pass the test:
 Ads have been successfully integrated into the blog page. A sidebar ad with the ID ad-placement-id-FAEEC2623F and an in-content block ad after the first paragraph with the ID ad-placement-id-342AEA22AA are displayed consistently with the ads on other pages.
 
 - [ ] We need to make sure that the ads are repainted on each navigation.
+The ads are configured to repaint on each navigation event within the site. This ensures that the ad content is refreshed and up-to-date for users as they browse through different pages.
 
 - [ ] We want to achieve a CLS score below 0.1 on each page.
+The site has been optimized to maintain a Cumulative Layout Shift (CLS) score below 0.1 for all pages.
+
 - [ ] We want to make sure we don't render ads in positions that are not visible depending on the device.
+The ads are designed to only render in visible positions, with responsive considerations for different devices. This ensures that on smaller screens, such as mobile devices, ads do not take up space when they are not in view.
+
 - [ ] We need the content of the page, meta title, and meta description to be served through a REST API. Both the content and meta information must be available on the first render of the page.
+The page content, including the meta title and meta description, is fetched from a REST API and is correctly included in the server-side rendered page. This approach ensures that all meta information is available on the first render
+
 - [ ] We want the site to be hosted on the cloud without having to manage servers.
+The site is hosted on Vercel, a cloud platform that allows for serverless deployment. This fulfills the requirement to host the site on the cloud without the need for active server management.
+
 - [ ] We would like to keep track of the infrastructure changes in the same way we keep track of the code changes (IaC) and be able to apply them programmatically.
+Infrastructure changes, such as environment variables and serverless function configurations, are defined and managed in the vercel.json file, following the IaC methodology. This file is checked into version control alongside the application code, allowing for programmatic application of infrastructure changes.
+
 - [ ] We would like to deploy the changes frequently and in automated fashion. Can we update live site on every push to the default branch?
+The project is configured for continuous deployment with Vercel, meaning that any commits pushed to the default branch automatically trigger a build and deployment process. This ensures that the live site is frequently updated in an automated fashion, reflecting the latest changes from the default branch
 
 ## Build Setup
 
