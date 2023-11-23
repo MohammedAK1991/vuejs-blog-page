@@ -7,10 +7,6 @@
       "config": {
         "serverFiles": ["server-middleware/**"]
       }
-    },
-    {
-      "src": "api/**/*.js",
-      "use": "@vercel/node"
     }
   ],
   "routes": [
